@@ -1,6 +1,6 @@
 const responseMessages = {
-    noRecordFound: "No record found..!",
-    recordFound: "Record found..!"
+    noRecordFound: "No record found for the given request..!",
+    recordFound: "Record found successfully..!"
 };
 
 const statusCode = {

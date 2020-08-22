@@ -25,7 +25,7 @@ app.post("/api/v1/bakingFoodItems/getQuestion/", (req, res) => {
     const responseQuestion = bakingFoodItemsQuestions.filter((row) => (row.parentQuestionId == questionId && row.parentAnswerValue == answer));
     if (responseQuestion.length > 0) {
         responseData.message = responseMessages.recordFound;
-        responseData.data = responseQuestion;
+        responseData.data = responseQuestion[0];
     } else {
         responseData.message = responseMessages.noRecordFound;
     }
@@ -45,10 +45,15 @@ app.post("/api/v1/bakingFoodItems/getTax/", (req, res) => {
         return false;
     }
     const { questionId, answer } = req.body;
-    const responseQuestion = bakingFoodItemsQuestions.filter((row) => (row.parentQuestionId == questionId && row.parentAnswerValue == answer));
+    const responseQuestion = bakingFoodItemsQuestions.filter((row) => (row.questionId == questionId));
     if (responseQuestion.length > 0) {
         responseData.message = responseMessages.recordFound;
-        responseData.data = responseQuestion;
+        const taxData = responseQuestion[0].options.filter((row) => row.value == answer);
+        if (taxData.length > 0) {
+            responseData.data = taxData[0];
+        } else {
+            responseData.message = responseMessages.noRecordFound;
+        }
     } else {
         responseData.message = responseMessages.noRecordFound;
     }

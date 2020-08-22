@@ -1,7 +1,7 @@
 const bakingFoodItemsQuestions = [
     {
         questionId: 1, question: "Is this food item used for banking considered a candy?",
-        options: [{ value: 0, option: "No", isAQuestion: true }, { value: 1, option: "Yes", isAQuestion: true }],
+        options: [{ value: 1, option: "No", isAQuestion: true }, { value: 2, option: "Yes", isAQuestion: true }],
 
     },
     {
@@ -17,7 +17,7 @@ const bakingFoodItemsQuestions = [
     },
     {
         questionId: 3, question: "Is candy sweetended?",
-        options: [{ value: 0, option: "No", taxp: 1 }, { value: 1, option: "Yes", isAQuestion: true }],
+        options: [{ value: 1, option: "No", taxp: 1 }, { value: 2, option: "Yes", isAQuestion: true }],
         parentQuestionId: 1, parentAnswerValue: 1
     },
     {
@@ -32,8 +32,8 @@ const bakingFoodItemsQuestions = [
     {
         questionId: 5, question: "Choose size",
         options: [
-            { value: 0, option: "< 2 oz", taxp: 4 },
-            { value: 1, option: ">=2 oz", taxp: 5 },
+            { value: 1, option: "< 2 oz", taxp: 4 },
+            { value: 2, option: ">=2 oz", taxp: 5 },
         ],
         parentQuestionId: 2, parentAnswerValue: 5
     },
